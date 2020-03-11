@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Assignment 1</title>
+	<link rel="stylesheet" href="index.css">
+	<script src="jquery-3.4.0.min.js"></script>
+
+	<meta charset="UTF-8">
+  </head>
+    
+  <body>
+
+    <header>
+      <nav>
+        <h1>Header</h1>
+      </nav>
+    </header>
+	 
+		<!-- List of buttons -->
+	<div id="button_wrapper">
+		<button id="add_new_box">Add a new box</button>
+		<button id="remove_box">Remove a box</button>
+		<button id="add_yellow_box">Add yellow box</button>
+		<button id="change_page_layout">Change page layout</button>
+		<button id="print_DOM_tree">Print DOM tree</button>
+	</div>	
+
+	
+	<ul class="parent">
+		<!-- I changed the ul class name to "parent" to help me understand this problem better-->
+	  <li class="grid-item">1</li>
+	  <li class="grid-item">2</li>
+	  <li class="grid-item">3</li>
+	  <li class="grid-item">4</li>
+		<li class="grid-item">5</li>
+		<li class="grid-item">6</li>
+	</ul>
+    
+    
+		<footer>
+      <h4>Footer</h4> 
+    </footer>
+	
+	<script>
+
+		$(document).ready(function(){
+    // type your script here
+		// here how to create a function and link it to a button
+		// 1. Add new box:
+			$('#add_new_box').click(function(){
+				// Setting maximum number of boxes
+				var max_fields = 11; 
+				var min_fields = -1;
+
+				var gridItemCount = ($('.grid-item')).length + 1;
+				console.log(gridItemCount);
+				// This part of the problem took me the most time. For some reason, I couldn't wrap my head around
+				// how to select things. I even tried changing the classes to have numbers but that made it more 
+				// complicated. I was also having trouble with the count and how to insert it into new boxes.
+				if (gridItemCount < max_fields ){
+					$('.parent').append('<li class="grid-item">'+ gridItemCount +'</li>');
+				}
+				// I added this so that if we started adding more boxes when there were zero boxes, the remove box will
+				// show up again
+
+				if (gridItemCount > min_fields){
+					$('#remove_box').show('#remove_box').show;
+				}
+				// This was tricky in that I had to make it max_fields - 1 otherwise the add_new_box button stays until 
+				// I press it another time. 
+				if (gridItemCount == max_fields-1){
+					$('#add_new_box').hide('#add_new_box').hide;
+					// I added used this to hide the add_yellow_box as well to meet the max box criteria.
+					$('#add_yellow_box').hide('#add_yellow_box').hide;
+				}
+				 
+				});
+
+
+			
+				
+		// 2. Remove a box
+				$('#remove_box').click(function(){
+					var max_fields = 11;
+					var min_fields = -1;
+					var gridItemCount = ($('.grid-item')).length - 1;
+					console.log(gridItemCount);
+					// I got stuck on this too! I tried the following but it didn't work.
+					// $('.parent').remove('<li class="grid-item">'+ gridItemCount +'</li>');
+					// I finally found a solution with just recalling the last iten in the list and then removing that
+					
+
+					if (gridItemCount > min_fields ){
+					$('.grid-item').last().remove();
+					}
+					if (gridItemCount < max_fields){
+					$('#add_new_box').show('#add_new_box').show;
+					$('#add_yellow_box').show('#add_yellow_box').show;
+
+				  }
+					if (gridItemCount == min_fields+1){
+					$('#remove_box').hide('#remove_box').hide;
+				  }
+					
+				});
+
+
+		// 3. Add a box with a yellow background
+				$('#add_yellow_box').click(function(){
+				 var max_fields = 11; 
+				 var min_fields = -1;	
+				 var gridItemCount = ($('.grid-item')).length + 1;
+				 console.log(gridItemCount);
+				 if (gridItemCount < max_fields ){
+					$('.parent').append('<li class="grid-item">'+ gridItemCount +'</li>');
+					$('.grid-item').last().css('background', 'yellow');
+				}
+				if (gridItemCount > min_fields){
+					$('#remove_box').show('#remove_box').show;
+				}
+				if (gridItemCount == max_fields-1){
+					$('#add_new_box').hide('#add_new_box').hide;
+					$('#add_yellow_box').hide('#add_yellow_box').hide;
+				}
+			});
+
+		// 4. Order boxes into rows
+		$('#change_page_layout').click(function(){
+			// I kept playing around with the elements on the live html page until I was able to pin-point
+			// which elements needed to be changed. The CSS skills learned from the last class helped too :)
+				 $('.grid-item').css( 'width', '960px').css('height', '100px').css('line-height','100px').css('grid-column', 'none');
+				 
+				 });
+				 
+  
+// });
+
+		// 5. Print a DOM tree
+		// this is by far the hardest part of the assignment! I was so lost on it!
+		$('#print_DOM_tree').click(function(){
+			// I tried the following first but I couldn't get it to select only the class I am looking for
+			// I searched and searched but didn't find a solution!
+			// I looked at your proposed answer to this question but I got even more confused
+			// var parent = document.getElementsByClassName('parent');
+			// alert(document.parent.innerhtml);
+			// I ended up going with the body html
+			alert(document.body.innerHTML);
+
+			});
+
+		}); // end of ready function	
+	</script>
+  </body>
+</html>
+<!-- End of Document -->
