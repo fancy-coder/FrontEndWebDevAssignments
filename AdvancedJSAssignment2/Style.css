@@ -1,0 +1,244 @@
+#container{
+    border: 2px solid red;
+    background-color: grey;
+    margin: 5%;
+}
+
+h2{
+    color: red;
+    text-shadow: 1px 2px #272424;
+    text-align: center;
+}
+
+#projects{
+    margin: 10% 10% 15% 10%;
+}
+
+ol li{
+    border: 1px dotted lightgrey ;
+    cursor: pointer ;
+    text-align: left;
+    color: black;
+    margin-bottom: 2%;
+    margin-right: 15%;
+}
+
+ol li:hover{
+    background: rgb(221, 113, 119);
+}
+
+#addBtnProject{
+    margin: 0% 5%;
+    float: right;
+}
+
+.tabs {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: black;
+  
+}
+
+<!DOCTYPE html>
+<html>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- I found this  ^ on this website: https://css-tricks.com/snippets/html/responsive-meta-tag/ which 
+makes it possible for the width of the page to be whatever the width of the screen is -->
+<!-- I linked my CSS -->
+<link rel="stylesheet" href="jquery-ui.min.css">
+<!-- I linked the jquery-ui css ^ and I linked jQuery & jQuery-UI below -->
+<script src="external/jquery/jquery.js"></script>
+<script src="jquery-ui.min.js"></script>
+
+<title>Personal To-Do List App</title>
+<style>
+
+    #container{
+    border: 2px solid red;
+    background-color: grey;
+    margin: 5%;
+}
+
+h2{
+    color: red;
+    text-shadow: 1px 2px #272424;
+    text-align: center;
+}
+
+#projects{
+    margin: 10% 10% 15% 10%;
+}
+
+ol li{
+    border: 1px dotted lightgrey ;
+    cursor: pointer ;
+    text-align: left;
+    color: black;
+    margin-bottom: 2%;
+    margin-right: 15%;
+}
+
+ol li:hover{
+    background: rgb(221, 113, 119);
+}
+
+#addBtnProject{
+    margin: 0% 5%;
+    float: right;
+}
+#addBtnItem{
+    margin: 0% 5%;
+    float: right;
+
+    }
+    
+.tabs {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: black;
+  
+}
+    
+</style>
+<script>
+    $(document).ready(function(){
+        //To make the the the div Projects a tab
+        $("#projects").tabs();
+        //Making the different ul tabs sortable but only horizontally not up and down. 
+        $("ul").sortable({axis:"x", containment:"#projects"})
+        //making the ol tabs sortable in the vertical direction.
+        $("ol").sortable({axis:"y", containment:"#projects"});
+        $("#addBtnItem").button()
+        .click(function(){
+            $("#itemDialog").dialog({
+                buttons: {
+                        "Add New Item/Task": function(){
+                            
+                            $("#projects").tabs("refresh");
+                            var selectedTab = $("#projects").tabs("option","active");
+                            var orderSequence = $("#main > li:nth-child("+ (selectedTab+1)+")>a").attr("href");
+                            $("#projects" + orderSequence).append("<li><input type='checkbox'>" + $("#newItem").val() + "</li>");
+                            var itemName = $("#newItem").val("");
+                           
+                            $("#newItem").val("");
+                            $(this).dialog("close");
+//                            if (itemName === '') {
+//                                alert("You must write something or press cancel!");
+//                                } 
+//                            else {
+//                                $("<li><a href='#" + itemName + "'>" + itemName + "</a></li>")
+//                                .appendTo("#main");
+//                                $("<ol id='"+ itemName +"'>").appendTo("#projects");
+//                                $("<ol id='" + categoryName + "'></ol>");
+//                                $("#projects").tabs("refresh");
+//                                $("#newItem").val("");
+//                                $(this).dialog("close");
+//                            }
+                            
+                    },
+
+                        "Cancel":function(){
+                            $("#newItem").val("");
+                            $(this).dialog("close");
+                        }
+                    }
+            });
+            
+        });
+        //making an add category button
+        $("#addBtnProject").button()
+        //upon click, a diaogue will open up
+        .click(function(){
+            
+            $('#categoryDialog').dialog({
+                    buttons: {
+                        'Add New Category':function(){
+                            var categoryName = $('#newCategory').val();
+                            if (categoryName === '') {
+                                alert("You must write something or press cancel!");
+                                } 
+                            else {
+                                $("<li><a href='#" + categoryName + "'>" + categoryName + "</a></li>")
+                                .appendTo("#main");
+                                $("<ol id='"+ categoryName +"'>").appendTo("#projects");
+                                $("<ol id='" + categoryName + "'></ol>");
+                                $("#projects").tabs("refresh");
+                                $("#newCategory").val("");
+                                $(this).dialog("close");
+                            }
+                            
+                    },
+
+                        'Cancel':function(){
+                            $("#newCategory").val("");
+                            $(this).dialog("close");
+                        }
+                    }
+                }
+                );
+
+            
+//            $("#categoryDialog").dialog({
+//                button:{
+//                    //the button to add a new category
+//                    "Add new Category": function(){
+//                        var categoryName = $("#newCategory").val();
+//                        //appending the input to the unordered list
+//                        $("<li><a href='#" + categoryName + "'>" + categoryName + "</a></li>").appendTo("#main");
+//                    },
+//                    "Return":function(){
+//                        $("#newCategory").val("");
+//                        $(this).dialog("close");
+//                    }
+//            }});
+        });
+    });
+
+</script>    
+    
+<head></head>
+<body>
+    <div id='container'>
+        <h2>My Personal To-Do List</h2>
+        <!--Creating an Add Category Button      -->
+        <button id="addBtnProject">Add Category</button>
+        <div id="projects">
+        
+            <ul id="main">
+                <li><a href="#personal">Personal</a></li>
+                <li><a href="#work">Work</a></li>
+            </ul>
+            <ol id="personal">
+                <li><input type="checkbox">Doctor's Appointment</li>
+                <li><input type="checkbox">Dentist's Appointment</li>
+            </ol>
+            <ol id="work">
+                <li><input type="checkbox">Complete Project</li>
+                <li><input type="checkbox">Meet Project manager</li>
+                <li><input type="checkbox">Finish Video</li>
+            </ol>
+        </div>
+        <button id="addBtnItem">Add Item/Task</button>
+        <div id="categoryDialog" title="Add a Category" style="display: none;">
+            <label for="newCategory">Category Name:</label>
+            <input id="newCategory" type="text" />
+        </div>
+<!--        creating a dialog when you press on Add Category-->
+        <div id="itemDialog" title="Add a(n) Item/Task" style="display: none;">
+            <label for="newItem">Item/Task Name:</label>
+            <input id="newItem" type="text" />
+        
+        </div>
+    </div>
+        
+             
+        
+
+    
+   
+
+</body>
+
+
+</html>
