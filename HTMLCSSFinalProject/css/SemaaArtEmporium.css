@@ -1,0 +1,506 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family:Luminari, fantasy;
+    padding: 10px;
+    background: #f1f1f1;
+}
+
+/* Header Title */
+.header {
+    display: flex;
+    padding: 30px;
+    text-align: center;
+    background: white;
+}
+
+.header h1 {
+    margin: 0px;
+    font-size: 50px;
+    color: gold;
+    /* I got the idea to do a border from: https://css-tricks.com/adding-stroke-to-web-text/ */
+    -webkit-text-fill-color:  gold; 
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color:darkgoldenrod ;
+    text-shadow: 4px 4px 4px #000000;
+}
+
+.header p{
+    font-size: 30px;
+    text-shadow: 4px 4px 4px darkgoldenrod;
+}
+
+#logo{
+    margin: auto;
+	display:block;
+    padding: 20px 0px 10px 0px;
+    width: 30%;
+    height: 30%;
+}
+
+.slogan{
+    padding: 10% 0% 10% 5%;
+}
+
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: #D4AF37;
+}
+
+/* Style the topnav links */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Change color on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+    float: left;
+    width: 75%;
+}
+
+/* Right column */
+.rightcolumn {
+    float: left;
+    width: 25%;
+    background-color: #f1f1f1;
+    padding-left: 20px;
+}
+
+#profile{
+    width:40%;
+    
+}
+
+/* Fakeimage */
+.fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Add a card effect for articles */
+.card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.slideshow ul
+{
+    padding: 0px;
+    display: flex;
+	list-style: none;
+    width: 300%;
+    position: relative; 
+}
+
+.slideshow ul li
+{
+    /* center the images */
+    text-align: center;
+    /* the percentages here add up to a 100% of the parent's parent (because parent is 500%) */
+    width:50%;
+    /* some margins left and right to ensure that side images don't spill into the screen*/
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.slideshow ul { animation: slideshow 15s infinite alternate; }
+
+@keyframes slideshow {
+    0%    {left:    0%;}
+    10%   {left:    0%;}
+    20%   {left: -60%;}
+    30%   {left: -60%;}
+    40%   {left: -120%;}
+    50%   {left: -120%;}
+    60%   {left: -180%;}
+    70%   {left: -180%;}
+    80%   {left: -240%;}
+    90%   {left: -240%;}
+    100%  {left: -240%;}
+}
+
+.slideshow img{
+    width:  50%;
+    height: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+form{
+    width: 600px;
+    background-color: white;
+    padding: 10px 10px 50px 10px;
+}
+
+
+/* "About your Idea" Section */ 
+
+/* Row 1 Formatting and Setting the parent content to flex */
+#Row1Content{
+    display: flex;  
+}
+
+/*Left column of row 1*/
+#ColumnLeft{
+    /* 66% of parent which is Row1Content 600px as specified in form */
+    width: 66.6666666%;
+    padding: 0 25px 0 0;  
+}
+
+/*Right column of row 1*/
+#ColumnRight{
+    width: 33.3333333%;
+    padding: 0 15px;
+    background-color: gold;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Formatting of the radio boxes, check boxes and other items under "About your visit" section */
+
+#ColumnLeftRow1{
+    display: flex;
+}
+
+#ColumnLeftRow1Child1{
+    width:80%;  
+}
+
+#ColumnLeftRow1Child2{
+    width: 30%;
+    margin: 1.9em 3em 1.9em 0em; 
+}
+
+/*About you section*/
+
+#Row2Content label{
+    display: block;
+    width: 35%;
+}
+
+#Row2Content input{
+    display: block;
+    width: 45%;
+}
+
+#Row2Content textarea{
+    width: 45%;
+    height: 100px;  
+}
+
+/* Label input formatting */
+.LabelInputPairs{
+    display: flex;
+}
+
+/* Input formatting */
+
+input{
+    font-weight:bold;
+    font-size: 13px;
+}
+
+input:focus{
+    border: 1px solid #0C0;
+    outline-color: #0C0;
+}
+
+/* Just as an extra, I added this so that if the input is invalid, the background will turn a pale red colour*/
+input:invalid{ 
+    border: 1px solid red;
+    background-color: #FFCCCC;
+}
+
+/* Just as an extra, I added this so that if the input is valid, the background will turn a pale yellow colour*/
+input:valid{ 
+    background-color: #ffffcc;
+}
+
+/* Making textarea behave like the input */
+textarea:focus{
+    border: 1px solid #0C0;
+    outline-color: #0C0;
+}
+
+/* Just as an extra, I added this so that if the input is invalid, the background will turn a pale red colour*/
+textarea:invalid{
+    border: 1px solid red;
+    background-color: #FFCCCC;
+}
+
+/* Just as an extra, I added this so that if the input is valid, the background will turn a pale yellow colour*/
+textarea:valid{
+    background-color: #ffffcc;
+}
+
+h4{
+    padding-bottom: 0px;
+}
+
+h3{
+    background-color:gold;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Send us an image section*/
+#Row3Content{
+    display: flex;
+}
+
+#Row3Content label{
+    display: block;
+    width: 35%;
+}
+
+#Row3Content input{
+    display: block;
+    width:45%;
+    font-weight: normal;
+}
+
+#upload{
+    display: block;
+    width:45%;
+    font-weight: normal;
+}
+
+#submit{
+    display: block;
+    width:100%;
+    
+}
+/*Submit Button*/
+
+#submit{
+	display: block;
+	width: 100%;
+	background-color: darkgoldenrod;
+	padding: 10px 10px 10px 10px;
+	font-size: 30px;
+	color: snow;
+    font-size: 30px;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* making the astericks red*/
+span{color: red;}
+
+/*changing the colour when the mouse hovers on the submit button*/
+#submit:hover{
+    background-color: gold;
+}
+
+
+
+
+/* Footer */
+.footer {
+    padding: 20px;
+    text-align: center;
+    background: gold;
+    margin-top: 20px;
+}
+
+
+@media screen and (max-width: 992px) {
+    .leftcolumn, .rightcolumn {   
+        width: 100%;
+        padding: 0;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .topnav a {
+        float: none;
+        width: 100%;
+    }
+}
+    
+#social ul
+{
+   list-style-type:none;
+}
+
+/* selector math:all the lis under the element with id social */
+
+/* selector math:all the anchors under all the lis under the element with id social */
+#social li a
+{
+   display:block;
+   width:95px;
+   height:26px;
+   text-indent:-10000px;
+   background-image:url('../images/social.png');
+   background-repeat:no-repeat; 
+}
+
+/** CSS/image sprities: we will cover it on week 10  **/
+/* selector math:all the lements with class facebook (there's only 1) */
+.facebook {background-position:0 0;}
+/* selector math:all the lements with class twitter (there's only 1) */
+.twitter {background-position:-98px 0;}
+/* selector math:all the lements with class youtube (there's only 1) */
+.youtube {background-position:-196px 0;}
+/* selector math:all the lements with class foursquare (there's only 1) */
+.foursquare {background-position:-294px 0;}
+
+/* End of Social icons style */
+
+/* carousel */
+.slideshow ul
+{
+    padding: 0px;
+    display: flex;
+	list-style: none;
+    width: 400%;
+    position: relative; 
+}
+
+.slideshow ul li
+{
+    /* center the images */
+    text-align: center;
+    /* the percentages here add up to a 100% of the parent's parent (because parent is 500%) */
+    width:21%;
+    /* some margins left and right to ensure that side images don't spill into the screen*/
+    margin-left: 2%;
+    margin-right: 2%;
+    max-height: 400px;
+}
+
+.slideshow ul { animation: slideshow 10s infinite alternate; }
+
+@keyframes slideshow {
+    0%    {left:    0%;}
+    10%   {left:    0%;}
+    20%   {left: -100%;}
+    30%   {left: -100%;}
+    40%   {left: -100%;}
+    50%   {left: -200%;}
+    60%   {left: -200%;}
+    70%   {left: -200%;}
+    80%   {left: -300%;}
+    90%   {left: -300%;}
+    100%  {left: -300%;}
+}
+
+.slideshow img{
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+}
+
+#piechart {
+    height: 600px;
+    }
+    
+label {
+    display: inline-block;
+    width: 100px;
+    color: ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6'];
+    }
+    
+chart.draw(data, {
+        width: 400,
+        height: 240,
+        title: 'Toppings I Like On My Pizza',
+        colors: ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6'],
+        is3D: true
+        });
+
+.container {
+  background: #fff;
+  max-width: 600px;
+  width: 100%;
+  display: table;
+  margin: 0 auto;
+  margin-top: 40px;
+  border: 1px solid #cfcbcc;
+}
+
+input {
+  border: none;
+  display: block;
+  width: 98.4%;
+  line-height: 1.5;
+  padding: 8px 0 8px 10px;
+  border-bottom: 1px solid #cfcbcc;
+  outline:0;
+}
+
+h1,h2 {
+  text-align: center;
+  margin-bottom: 0px;
+  line-height: 1;
+}
+h2 {
+  color: gray;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    color: #899098;
+    font-weight: 400;
+    border-bottom: 1px solid #cfcbcc;
+    line-height: 1.5;
+    padding: 8px 0;
+    &:before {
+      content: "\25A1";
+      padding: 10px 10px;
+      font-size: 20px;
+    }
+    &:hover {
+      text-decoration: line-through;
+      cursor: pointer;
+    }
+    &:last-child {
+      border-bottom: none;
+    }
+  } 
+}
+
+.checked {
+  color:green;
+    &:before {
+      content: "\2713";
+      padding: 10px 10px;
+      font-size: 20px;
+    }
+    &:hover {
+      text-decoration: none;
+      &:after {
+        content: "(remove)";
+        color: tomato;
+        text-align: right;
+      }
+    }
+}

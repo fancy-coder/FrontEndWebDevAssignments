@@ -1,0 +1,385 @@
+<!-- Final Assignment - Semaa Amin - July 2019-->
+
+<!DOCTYPE html>
+
+<html>
+  <!-- Added page title -->
+  <head>
+    <!-- add title to page -->
+    <title> Semaa's Art Emporium </title>
+    <!-- link css file to html page-->
+    <link rel="stylesheet" href="css/SemaaArtEmporium.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>jQuery UI Draggable - Default functionality</title>
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <link rel="stylesheet" href="/resources/demos/style.css">
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  </head>
+
+    <audio controls autoplay >
+      <source src="audio/The%20Spy%20from%20Cairo%20-%20Oud%20Funk.mp3" type="audio/mpeg">
+    </audio>
+    
+    <body>
+        <div class="header">
+         <img src="images/SemaaLogoGOLD3.png"id="logo">
+          <div class="slogan">
+              <h1>Semaa's Art Emporium</h1>
+              <p>Quality. Creativity. Originality. </p>
+          </div>
+        
+        </div>
+
+        <div class="topnav">
+          <a href="#Home">Home</a>
+          <a href="#AboutMe">About Me</a>
+          <a href="#Purchase">Purchase</a>
+          <a href="#past">Past Gallery</a>
+          <a href="#custom">Custom Requests</a>
+          <a href="#classes">Classes</a>
+          <a href="#Interests">Interests</a>
+          <a href="#Follow Me">Follow Me</a>
+        </div>
+        <!-- slide show below nav -->
+        <div class="slideshow">
+            <ul>
+                <li><img src="images/TeaTimeSalimImitation.jpg" alt="Tea Time inspired by Nazar Salim" />
+                <li><img src="images/CafeParis.png" alt="Cafe Paris" />
+                <li><img src="images/Italia.png" alt="Italian Sea-Side" />
+                <li><img src="images/TimeForPeace.png"alt="Time for Peace" />
+            </ul> 
+        </div>
+        <div class="row">
+          <div class="leftcolumn">
+            <div class="card">
+              <h2 id="Home">Home</h2>
+              <h1>Welcome to my Art Emporium!</h1>
+              <p>The Art Emporium</p>
+              <p>This is a multifunctional website designed to not only showcase my art, but also it serves as a platform to display and sell my artwork. I am also teaching some art classes and this website will allow you to register for those classes as well. You can also request custom paintings or artwork and I can provide you with a quote. I hope you enjoy visiting my page.</p>
+            </div>
+              
+            <div class="card">
+              <h2 id="Purchase">Paintings and Artwork for Purchase</h2>
+              <h5>Current Painting(s) for sale</h5>
+              <div class="PaintingsForSale">Come Away With Me</div>
+              <img src= "images/ComeAwayWithMe.png" alt="Come Away With Me, Oil & Acrylic on Canvas">
+              <p>Come Away With Me, Oil and Acrylic on Canvas</p>
+              <p>$1500</p>
+              <p>60inch by 80 inches. This painting is part of a collection of paintings that I am composing to be featured in my own children's storybook.</p>
+            </div>
+              
+            <div class="card">
+              <h2 id="past">Past Paintings Gallery</h2>
+              <h5>Previously sold paintings and past projects</h5>
+              <div class="Past Paintings">Coffeeholic</div>
+                <img src="images/Coffeeholic.png" alt="Coffeeholic, Acrylic on Canvas">
+              <p>Coffeeholic, Acrylic on Canvas</p>
+              <p>20 inch by 24 inch. Donated to Auction for Cancer Research Charity</p>
+                <img src="images/DiamondInTheRough.png" alt="Diamond in the Rough">
+              <p>Diamond in the Rough, Oil, Acrylic and Mixed Media on Canvas</p>
+              <p>20 inch by 24 inch. Donated to Pediatric Office in Children's Hospital of Victoria</p>
+            </div>
+            <div class="card">
+              <h2 id="custom">Custom Requests</h2>
+              <h5>For more personal artwork, you can describe to me what you are looking for and I can help design an artwork custom made for you</h5>
+              <p>Please Fill out the form below and attach any pictures you might need that can help you in describing what you like</p>
+              <form id="MiddleSection" action="surveys.php" method="post">
+        
+                <!-- Row 1 - About your Visit -->
+                <div id="Row1" class="Row">
+
+                    <h3><i>About your Idea</i></h3>
+
+                    <div id="Row1Content">
+                        <div id="ColumnLeft">
+                            <div id="ColumnLeftRow1">
+
+                                <h4 id="ColumnLeftRow1Child1">
+                                    How much would you like to spend?</h4>
+
+
+                                <select id="ColumnLeftRow1Child2">
+                                    <!-- Creating Drop Down List with options -->
+                                    <option value="0-10">$0-$100</option>
+                                    <option value="10-20">$100-$200</option>
+                                    <option value="20-30">$200-$300</option>
+                                    <option value=">30"> > $300 </option>
+                                </select>
+
+                            </div>
+
+                            <div id="ColumnLeftRow2">
+
+
+                                <fieldset>
+                                    <!-- Creating legends-->
+                                    <legend><h4>What medium would you like?</h4></legend>
+                                    <!-- Creating Checkboxes with options and setting default checked box-->
+                                    <input type="checkbox" name="Order" id="Option1" value="Taco" checked>
+                                    <label for="Option1">Oil</label>
+                                    <input type="checkbox" name="Order" id="Option2" value="Burritos">
+                                    <label for="Option2">Acrylic</label>
+                                    <input type="checkbox" name="Order" id="Option3" value="Quesadillas">
+                                    <label for="Option3">Mixed Media</label>
+                                </fieldset>
+                            </div>
+
+
+                            <div id="ColumnLeftRow3">
+                                <fieldset>
+                                    <legend><h4>How big would you like it?</h4></legend>
+                                    <!-- Creating radio boxes with options and setting default checked radios  -->
+                                    <input type="radio" name="Experience" id="Option1" value="Not Bad">
+                                    <label for="Option1">Small</label>
+                                    <input type="radio" name="Experience" id="Option2" value="Good" checked>
+                                    <label for="Option2">Medium</label>
+                                    <input type="radio" name="Experience" id="Option3" value="Excellent">
+                                    <label for="Excellent">Large</label>
+                                </fieldset>
+                            </div>
+                            
+                            <div class="container">
+                            <h2>Please make a list of some of your painting ideas.
+                                Double Click to remove.</h2>
+                              <form  action="#">
+                                <input type="text" name="item" id="item" placeholder="Add New Idea..." />
+                            </form>  
+                            <ul id="list"></ul>
+
+                            </div>
+                            <script>
+                            (function(){
+  
+                                  var list = document.querySelector('#list'),
+                                      form = document.querySelector('form'),
+                                      item = document.querySelector('#item');
+
+                                  form.addEventListener('submit',function(e){
+                                    e.preventDefault();
+                                    list.innerHTML += '<li>' + item.value + '</li>';
+                                    store();
+                                    item.value = "";
+                                  },false)
+
+                                  list.addEventListener('click',function(e){
+                                    var t = e.target;
+                                    if(t.classList.contains('checked')){
+                                      t.parentNode.removeChild(t);
+                                    } else {
+                                      t.classList.add('checked');
+                                    }
+                                    store();
+                                  },false)
+//                          LOCAL STORAGE
+                                  function store() {
+                                    window.localStorage.myitems = list.innerHTML;
+                                  }
+
+                                  function getValues() {
+                                    var storedValues = window.localStorage.myitems;
+                                    if(!storedValues) {
+                                      list.innerHTML = '<li>Make a listof ideas </li>';
+                                    }
+                                    else {
+                                      list.innerHTML = storedValues;
+                                    }
+                                  }
+                                  getValues();
+                                })();
+                            
+                            </script>
+                            
+                        </div>
+
+                        <div id="ColumnRight">
+                            <h4>How to get 10% off your custom order:</h4>
+                            <p>
+                            Be sure to give me a review on google and send me the link to get 30% off your order!
+                            Also, you could also follow me on my social media accounts listed on this page. It's a pleasure doing work with you!
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Row 2 - About You -->
+
+                <div id="Row2" class="Row">
+
+                    <h3><i>About you</i></h3>
+                    <div id="Row2Content">
+                        <div class="LabelInputPairs">
+                        <!-- Setting labels, accesskeys and patterns -->    
+                            <label for="FirstLastname" accesskey="F"><u>F</u>irst, Last Name<span>*</span></label>
+                            <!-- I tried to change the required pattern to "[A-Za-z] [A-Za-z]" to include first AND last name but it is giving me problems -->
+                            <input type="text" name="FirstLastname" id="FirstLastname" required pattern="[a-zA-Z0-9]+" autofocus>
+                        </div>
+                        <br>
+                        <div class="LabelInputPairs">
+                            <label for="E-mail" accesskey="E"><u>E</u>-mail<span>*</span></label>
+                            <input type="email" name="E-mail" id="E-mail"  title="Must be name@domain.com format">
+                        </div>
+                        <br>
+                        <div class="LabelInputPairs">
+                        <label for="Phone" accesskey="P"><u>P</u>hone</label>
+                        <input type="tel" name="Phone"
+                          pattern="\d{3}[\-]\d{3}[\-]\d{4}" 
+                          title="Must be 999-999-9999 format">
+                        </div>
+                        <br>
+                        <div class="LabelInputPairs">
+                        <label for="zip" accesskey="Z"><u>Z</u>ip code</label>
+                        <input type="text" name="zip" id="zip" 
+                          pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]" 
+                          title="Must be A1A 1A1 format">
+                       
+                        </div>
+                        <br>
+                        <div class="LabelInputPairs">
+                        <label for="Comments" accesskey="M"><u>M</u>essage<span>*</span></label>
+                        <textarea name="Comments" required placeholder="Describe for me your idea here.">
+                        </textarea>
+                        </div>
+                        <br>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- Row 3 - Send us image -->
+
+                <div id="Row3" class="Row">
+
+                   <h3><i>Send us an image from your visit</i></h3>
+                    <div id="Row3Content">
+                        <!-- Setting up file upload -->
+                        <label for="FileUpload">Attach only images:</label>
+                        <input id="upload" type="file" name="FileUpload" accept="image/jpeg" "image/x-png" "image/gif">
+                    </div> 
+                     <!-- submit button -->
+                    <!-- I added a popup window using onclick -->    
+                    <input id="submit" type="button" value="Submit" onClick="return alert('Thanks for your interest!');">
+                </div>
+            </form>
+                </div>
+              
+              <div class="card">
+              <h2 id="classes">Classes</h2>
+              <h5>Upcoming and Ongoing Classes</h5>
+              <img src="images/artclass.png" alt="Art Classes">
+              <p>There are several different classes available:</p>
+                  <ul>
+                      <li>Adults Only: 18 years and up<br>Tuesdays and Thursdays, 6pm - 9pm
+                          <br>$200 for 10 Classes
+                      </li>
+                      <li>Teens Only: 13 to 18 years <br> Mondays and Wednesdays, 6pm - 9pm
+                          <br>$200 for 10 Classes</li>
+                      <li>Kids Only: 7 to 12 years <br>Saturdays, noon-3pm
+                          <br>$200 for 10 Classes</li>
+                      
+                      <li>Adults Paint Night<br>Every Saturday Night from 7pm - 10pm
+                          <br>$20 a class if you bring your own supplies<br>$50 a class if I supply  your with supplies</li>
+                 
+                  </ul>
+              <p>Please enter an approximate number of hours that you have spent on the following activities to give both of us an idea of what needs to be improved.</p>
+                    <form id="form1" onsubmit="drawChart(); return false" >
+                     <label for="painting">Painting: </label><input type="text" id="painting"><br>
+                     <label for="sketching">Sketching: </label><input type="text"  id="sketching"><br>
+                     <label for="crafts">Crafts: </label><input type="text"  id="crafts"><br>
+                     <label for="digitalArt">Digital Art: </label><input type="text" id="digitalArt"><br>
+                     <label for="waterColor">Water Colour: </label><input type="text"  id="waterColor"><br>
+                     <label for="pastels">Pastels: </label><input type="text"  id="pastels"><br>
+                     <label for="othervar">Other: </label><input type="text" id="othervar"><br>
+
+                     <button type="submit" value="Submit">Submit</button>
+                     </form>
+
+                    <div id="piechart" class="ui-widget-content"></div>
+                  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+                  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+                  <script>
+                        
+                      $( function() {
+                        $( "#piechart" ).draggable();
+                        } );
+                      //define the chart package
+                      google.charts.load('current', {'packages':['corechart']});
+                      
+                      google.charts.setOnLoadCallback(drawChart);
+
+                     
+                      function drawChart() {
+
+                       painting = parseInt(document.getElementById('painting').value);
+                       sketching = parseInt(document.getElementById('sketching').value);
+                       crafts = parseInt(document.getElementById('crafts').value);
+                       digitalArt = parseInt(document.getElementById('digitalArt').value);
+                       waterColor = parseInt(document.getElementById('waterColor').value);
+                       pastels = parseInt(document.getElementById('pastels').value);
+                       other = parseInt(document.getElementById('othervar').value);
+                    var data = google.visualization.arrayToDataTable([
+                          ['Task', 'Hours per Week'],
+                          ['painting',   painting],
+                          ['sketching',      sketching],
+                          ['crafts',  crafts],
+                          ['Watch digitalArt', digitalArt],
+                          ['waterColor',    waterColor],
+                          ['pastels',    pastels],
+                          ['Other',    other]
+                        ]);
+                        var options = {
+                          title: 'Percentage Hours Spent',
+                          is3D: true,
+                          colors: ['#ffe6f2', '#ffcce6', '#ffb3d9', '#ff99cc', '#ff80bf', '#ff66b3', '#ff4da6', '#ff3399'],
+
+                        };
+                      
+                    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                    chart.draw(data, options);
+                      }
+                    </script> 
+ 
+              <img src="images/drawingstudio.jpg" alt="Art Classes">
+            </div>
+              
+            <div class="card">
+              <h2 id="Interests">Some Videos I find interesting</h2>
+              <video width="320" height="240" controls>
+              <source src="media/videoplayback.mp4" type="video/mp4">
+              </video>
+            </div>  
+
+              </div>
+              <div class="rightcolumn">
+                <div class="card" >
+                  <h2 id="AboutMe">About Me</h2>
+                  <div class="Profile"><img src="images/Profile.jpg" id="profile"></div>
+                  <p>My name is Semaa Amin. I have been painting for a very long time. I prefer to paint in oils and acrylic as well as mixed media. I prefer to paint cultural paintings and my style is a abstract as well as realist. I am open to doing requests for paintings or also slight adjustment to my origilan painting ideas. </p>
+                </div>
+                
+                <div class="card">
+                  <h3 id="Follow Me">Follow Me</h3>
+                  <aside id="social"><!-- Start social networking links -->
+                    <ul>
+                       <li><a href="#" class="facebook">Facebook</a></li>
+                       <li><a href="#" class="twitter">Twitter</a></li>
+                       <li><a href="#" class="youtube">YouTube</a></li>
+                       <li><a href="#" class="foursquare">foursquare</a></li>
+                    </ul>
+                    </aside><!-- End social networking links -->
+                </div>
+              </div>
+            </div>
+
+            <div class="footer">
+              <h2>Copyright &copy;Semaa's Art Emporium 2018</h2>
+            </div>
+
+    </body>
+    
+</html>
