@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- I found this  ^ on this website: https://css-tricks.com/snippets/html/responsive-meta-tag/ which 
+makes it possible for the width of the page to be whatever the width of the screen is -->
+<link rel="stylesheet" href="Style.css">
+<!-- I linked my CSS -->
+<link rel="stylesheet" href="jquery-ui.min.css">
+<!-- I linked the jquery-ui css ^ and I linked jQuery & jQuery-UI below -->
+<script src="jquery-3.4.0.min.js"></script>
+<script src="jquery-ui.min.js"></script>
+<script src="/assignment_4.js"></script>
+<title>Personal To-Do List App</title>
+
+<body>
+    <div id='container'>
+        <h2>My Personal To-Do List</h2>
+        <button id='addList'>Add Task</button>
+        <h3>Double Click to Cross Out Function</h3>
+        <div id='projects'>
+            <!-- I created an empty, invisible ordered list -->
+            <ol id='main'>
+                <li>Task1</li>
+                
+            </ol>
+            
+        
+        <div id='listDialog' title="Add a To-Do List" style='display:none'>
+            
+            <label for='newProjects'>To-Do List Name:</label>
+            <input id='newProjects'  type="text"/>
+        </div>
+
+        <div id='editDialog' style='display:none'>
+            <!-- I created an empty, invisible div for the editting part -->
+                <label for='editProjects'>Edited as:</label>
+                <input id='editProjects'  type="text"/>
+        </div>
+    
+    <button type="button" id='printBtn' >Print Me</button>
+    <input type="button" value="Print Whole Screen" onclick="window.print()" />  
+    <!-- <input type="button" value="Print2" onclick="window.open()" />  -->
+
+    </div>
+
+    <script>
+        
+        $(document).ready(function(){
+            // I made the list sortable only in the y axis
+            $('ol').sortable({axis:'y', containment:'#projects'});
+        // This took me a really long time to come up using JQuery and not Javascript
+            $('#addList').button()
+            .click(function(){
+
+                $('#listDialog').dialog({
+                    buttons: {
+                        'Add New Task':function(){
+                            var projectName = $('#newProjects').val();
+                            if (projectName === '') {
+                                alert("You must write something!");
+                                } 
+                            else {
+                                $("<li > <a " + projectName + " >" + projectName + " </a></li>")
+                                .appendTo('#main');
+                                
+                                $('ol').refresh;
+                                $('#newProjects').val('');
+                                $(this).dialog('close');
+                            }
+                    },
+
+                        'Cancel':function(){
+                            $('#newProjects').val('');
+                            $(this).dialog('close');
+                        }
+                    }
+                }
+                );
+
+            })
+// I made this effect so you know that that task is completed
+        $(document).on('dblclick','li', function(){
+        $(this).toggleClass('strike');    
+            });
+// this is the editing function. It was too difficult to come with
+        $(document).on('click','li', function() {
+            $(this).remove();
+            {
+                $('#editDialog').dialog({
+                    buttons: {
+                        'Edit Task':function(mainF){
+                            
+                            var editName = $('#editProjects').val();
+                            if (editName === '') {
+                                alert("You must write something!");
+                                } 
+                            else {
+                                $(this).remove;
+                                $("<li > <a " + editName + " >" + editName + " </a></li>")
+                                .appendTo('#main');
+                                // $("<button id='edit'>Edit</button>").appendTo('#main');
+                                $('ol').refresh;
+                                $('#editProjects').val('');
+                                $(this).dialog('close');
+                               
+                            }
+                    },
+                        'Cancel':function(){
+                            $('#newProjects').val('');
+                            $(this).dialog('close');
+                        }
+                    }
+                }
+                );
+            }
+            });
+
+        // $('#li').printSelector();
+        // $('#printBtn').on('click',function(printSelector){
+            
+        // });
+
+        
+
+        $('#printBtn').on('click', function(printSelector) {
+            
+        
+            
+            console.log("hello");
+            var print_window = window.open();
+            var divToPrint= document.getElementById('main').textContent;
+            console.log(divToPrint);
+            var newArray = [];
+            // Make a container element for the list
+            var listContainer = document.createElement("div");
+            // Add it to the page
+            document.getElementsByTagName("body")[0].appendChild(listContainer);
+            // Make the list
+            var listElement = document.createElement("ul");
+            // Add it to the page
+            listContainer.appendChild(listElement);
+            // Set up a loop that goes through the items in listItems one at a time
+            var numberOfListItems = newArray.length;
+            function makeList() {
+                for (var i = 0; i < numberOfListItems; ++i) {
+        // create an item for each one
+                var listItem = document.createElement("li");
+
+        // Add the item text
+                listItem.innerHTML = listData[i];
+
+        // Add listItem to the listElement
+                listElement.appendChild(listItem);
+                }
+                
+            };
+            makeList();
+            newArray.push(divToPrint);
+            $(print_window.document.write("List:")).css('font-size: 16px','color: black');
+            print_window.document.write(newArray).css('font-size: 12px','color: black');
+            print_window.print();
+            print_window.close();
+        });
+
+
+        });
+
+        
+             
+        
+
+    
+    </script>
+
+</body>
+
+<script>
+
+</script>
