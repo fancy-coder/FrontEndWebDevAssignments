@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>This is a counter that will increase each number by 1 starting from 0. It counts up to 50.</p>
+
+<button onclick="myCounter()">
+    Try it
+</button>
+
+<!-- I searched this online to see how to display my results on screen -->
+<p id="demo"></p>
+
+<script>
+    
+function myCounter() {
+    //naming the variable
+  var text = "";
+    //naming the variable that increases by 1
+  var i;
+  for (i = 0; i < 51; i++) {
+//the += is used to show each element not just the end element
+    text += "The number is " + i + "<br>";
+  }
+//    I found this online and like the above, it allows me to display all my results
+    document.getElementById("demo").innerHTML = text;}
+  
+</script>
+
+</body>
+</html>
