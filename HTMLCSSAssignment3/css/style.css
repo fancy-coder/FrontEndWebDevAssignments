@@ -1,0 +1,299 @@
+/*
+** ICT 580 - Assignment 3
+** November 12th, 2018
+** Resposive simple blog template
+** This's styel sheet for index.html
+*/
+
+/* begin stock css */
+body
+{
+   margin:0 auto;
+   padding: 0;
+   font-family: Georgia,"Times New Roman",sans-serif;
+   height: 100%;
+   min-height: 100%;
+}
+
+#page_wrapper
+{
+    background-color:#f5f5f5;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+}
+
+/*********************************** Start header style */
+#logo /* header: top element */
+{
+   background-image:url('../imgs/logo.png');
+   background-repeat:no-repeat;
+   background-position:50% 100%;
+   height:112px;
+   min-width:112px;
+   text-indent:-10000px; /* the freedom of fixed layout :/ */
+   margin:0;
+}
+/* end stock css */
+
+/* small screens */
+@media screen and (max-width:481px)  {
+    /* nav links in a horizontal list */
+    /* selector: all lis under all navs (we only have 1 nav) */
+    nav li{
+        display: inline-block;
+        padding: 0px 5px 0px 5px;
+    }
+    
+    /* selector: all uls under all navs (only 1 nav) */
+    nav ul{
+        padding-left: 5px;
+    }
+    
+    /* the main image, don't let it overflow beyond the length of the parent (width of the page) */
+    /* selector, all images under '#slide', there's only 1 */
+    #slide img{
+        margin-left:8%;
+        margin-right: 8%;
+        max-width: 84%;
+    }
+    
+    /* don't let widths of any images flow beyond their containers */
+    /* selector math: all images */
+    img{
+       max-width: 100%;
+    }
+    
+    /* selector math: all articles*/
+    article{
+       margin: 1% auto;
+       padding: 2%;
+       width: 84%;
+    }
+    
+    /* begin: social links in 2 columns */
+    /* selector math: the ul under the element with #social id */
+    #social ul{
+        padding: 0px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    /* selector math: the list items under the element with #social id */
+    #social li {
+        width:50%;
+        padding:0;
+    }
+    
+    /* selector math: the anchors under the list items under the element with #social id */
+    #social li a {
+       margin: auto;
+    }
+    /* end: social links in 2 columns */
+}
+
+/* common between medium and large */
+@media screen and (min-width:482px){
+    /* selector math: header */
+    header {
+        /* turn the header into a flex box and order the items in reverse order
+           putting the content at the end of the flex box, this is so the links
+           appear to the right of the logo, and the logo is at the top left. The order of
+           the nav and the h1 were swapped to achieve a natural ordering of nav first, heading
+           second for small screens */
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+    }
+    
+    /* don't let the main image flow beyond the screen */
+    /* selector math: the image under #slide*/
+    #slide img {
+        width: 100%;
+    }
+    
+    /* put articles in columns, the width of the items in this flex box is used to
+       determine how the items break into rows for each screen, a width of 25% puts
+       all 4 in the same row, 50% puts 2 per row*/
+    /* selector math: all sections (there's only 1) */
+    section {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    /* treat the links as blocks, makes it easier to deal with them by treating them 
+       like normal divs */
+    /* selector math: the direct child anchors under the articles under section */
+    section article > a {
+        display: block;
+    }
+    
+    /* don't let the article images flow beyond the width of the column */
+    /* selector math: the images under the direct child anchors under the articles under section */
+    section article > a img {
+        width: 100%;
+    }
+}
+
+/* large */
+@media screen and (min-width:769px){
+    /* links are in a horizontal list */
+    /* selector math: all the lis under all the navs (only 1 nav) */
+    nav li{
+        display: inline-block;
+        padding: 0px 5px 0px 5px;
+    }
+    
+    /* selector math: all the articles */
+    article{
+        width: 23%;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+    
+    /* selector math: all the uls (only 1) under the #social element (social id)*/
+    #social ul {
+        margin:auto;
+        display: flex;
+        justify-content: center;
+        padding: 0;
+    }
+}
+
+/* medium */
+@media screen and (min-width:482px) and (max-width:768px){
+    /* selector math: all the articles */
+    article{
+        width: 48%;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+    
+    /* begin: social links must be in 2 rows */
+    /* selector math: all the uls (only 1) under the #social element (social id)*/
+    #social ul{
+        padding: 0px;
+        display: flex;
+        flex-wrap: wrap;
+        width: 190px;
+        margin: auto;
+    }
+    
+    /* selector math: all the lis under the #social element (social id)*/
+    #social li
+    {
+        width:95px;
+        padding-top: 30px;
+    }
+    /* end: social links must be in 2 rows */
+}
+
+/* last screen size remains to be done */
+
+/* css below this point is mostly stock css*/
+/* selector math: all the anchors under all the lis under all the navs (only 1 nav) */
+nav li a
+{
+   color: hsl(216, 100%, 50%);
+   text-decoration:none;
+   font-style: italic;
+}
+/* End of header style */
+
+/*********************************** Start content style */
+/* selector math: all the elements with id slide */
+#slide /* Start top element styel */
+{
+   text-align:center;
+}
+
+/* selector math: all the anchors under all the articles 
+under all the #wrapp_articles (the extra #wrapp_article here is not necessary, 
+because all the articles are already  under 
+#wrapp_articles. (stock css) */
+article a
+{
+   color: #0066FF;
+   text-decoration: none;
+}
+
+/* selector math:all the h1s under all the articles under the element with id recent */
+#recent article h1
+{
+   line-height: 130%;
+   margin: 1% 0;
+}
+
+/* selector math: all the ps under all the articles 
+under all the #wrapp_articles (the extra #wrapp_article here is not necessary, 
+because all the articles are already  under 
+#wrapp_articles. (stock css) */
+article p
+{
+   font-size: 87.5%;
+   line-height: 145%;
+}
+
+/* selector math: all the summary elements that have a class readMore
+under all the articles  under all the #wrapp_articles 
+(the extra #wrapp_article here is not necessary, 
+because all the articles are already  under 
+#wrapp_articles. (stock css) */
+article summary.readMore
+{
+   color: #999;
+   display:block;
+   margin-top: 1%;
+   margin-bottom: 2%;
+}
+/* End of article element style */
+
+
+/*********************************** Start Social icons style */
+/* all stock css selectors from here below */
+/* selector math:all the uls under the element with id social */
+#social ul
+{
+   list-style-type:none;
+}
+
+/* selector math:all the lis under the element with id social */
+
+/* selector math:all the anchors under all the lis under the element with id social */
+#social li a
+{
+   display:block;
+   width:95px;
+   height:26px;
+   text-indent:-10000px;
+   background-image:url('../imgs/social.png');
+   background-repeat:no-repeat; 
+}
+
+/** CSS/image sprities: we will cover it on week 10  **/
+/* selector math:all the lements with class facebook (there's only 1) */
+.facebook {background-position:0 0;}
+/* selector math:all the lements with class twitter (there's only 1) */
+.twitter {background-position:-98px 0;}
+/* selector math:all the lements with class youtube (there's only 1) */
+.youtube {background-position:-196px 0;}
+/* selector math:all the lements with class foursquare (there's only 1) */
+.foursquare {background-position:-294px 0;}
+
+/* End of Social icons style */
+
+
+/*********************************** Start footer style */
+/* selector math: all the footer elements (there's only 1) */
+footer
+{
+   clear:both;
+   padding-top:2%;
+   text-align:center;
+   color:#aaa;
+   font-style:italic;
+   font-size:90%;
+}
+/* End of footer icons style */
+/*********************************** End of content style */

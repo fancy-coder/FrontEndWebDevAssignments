@@ -1,0 +1,32 @@
+/*
+** ICT 580 - Assignment 3
+** Resposive simple blog template
+** This's styel sheet for index.html
+**Print Page
+*/
+
+/* note:: complete this */
+@media print {
+    /* print styles go here */
+    #social {
+        display: none;
+    }
+    
+    #slide img {
+        display: none;
+    }
+    
+    header nav {
+        display: none;
+    }
+    
+    #wrapp_article article p {
+        font-family: "Times New Roman", Helvetica, sans-serif;
+    }
+    
+    #wrapp_article article h1 a {
+        color: black;
+        text-decoration: none;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+}
