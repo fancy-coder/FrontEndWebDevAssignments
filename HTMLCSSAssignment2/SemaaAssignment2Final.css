@@ -1,0 +1,197 @@
+html{
+    background-color: white;
+}
+
+/* Setting the body background and adding box-shadows*/
+body{
+    padding: 0px 80px 20px 80px;
+    background-color: #ffdf6b;
+    width: 600px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Setting the default text-size, background and a font stack of header: */
+header{
+    display: block;
+     width: 600px;
+    height: auto; 
+    padding: 10px 10px 0px 10px;
+    font-size: 16px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* for the header to be 600px */
+header h2{
+    width: 600px;
+    margin-bottom: 0PX;
+    padding-bottom: 10PX;
+}
+
+/* Giving a display value to the HTML5 rendered elements: */
+#logo{
+	display:block;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 5px;
+    width: 250px;
+}
+
+/* Formatting the form */
+form{
+    width: 600px;
+    background-color: white;
+    padding: 10px 10px 50px 10px;
+}
+
+/* Middle section box-shadow */
+#MiddleSection{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* "About your Visit" Section */ 
+
+/* Row 1 Formatting and Setting the parent content to flex */
+#Row1Content{
+    display: flex;  
+}
+
+/*Left column of row 1*/
+#ColumnLeft{
+    /* 66% of parent which is Row1Content 600px as specified in form */
+    width: 66.6666666%;
+    padding: 0 25px 0 0;  
+}
+
+/*Right column of row 1*/
+#ColumnRight{
+    width: 33.3333333%;
+    padding: 0 15px;
+    background-color: #ffffcc;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Formatting of the radio boxes, check boxes and other items under "About your visit" section */
+
+#ColumnLeftRow1{
+    display: flex;
+}
+
+#ColumnLeftRow1Child1{
+    width:80%;  
+}
+
+#ColumnLeftRow1Child2{
+    width: 25%;
+    margin: 1.9em 3em 1.9em 0em; 
+}
+
+/*About you section*/
+
+#Row2Content label{
+    display: block;
+    width: 35%;
+}
+
+#Row2Content input{
+    display: block;
+    width: 45%;
+}
+
+#Row2Content textarea{
+    width: 45%;
+    height: 100px;  
+}
+
+/* Label input formatting */
+.LabelInputPairs{
+    display: flex;
+}
+
+/* Input formatting */
+
+input{
+    font-weight:bold;
+    font-size: 13px;
+}
+
+input:focus{
+    border: 1px solid #0C0;
+    outline-color: #0C0;
+}
+
+/* Just as an extra, I added this so that if the input is invalid, the background will turn a pale red colour*/
+input:invalid{ 
+    border: 1px solid red;
+    background-color: #FFCCCC;
+}
+
+/* Just as an extra, I added this so that if the input is valid, the background will turn a pale yellow colour*/
+input:valid{ 
+    background-color: #ffffcc;
+}
+
+/* Making textarea behave like the input */
+textarea:focus{
+    border: 1px solid #0C0;
+    outline-color: #0C0;
+}
+
+/* Just as an extra, I added this so that if the input is invalid, the background will turn a pale red colour*/
+textarea:invalid{
+    border: 1px solid red;
+    background-color: #FFCCCC;
+}
+
+/* Just as an extra, I added this so that if the input is valid, the background will turn a pale yellow colour*/
+textarea:valid{
+    background-color: #ffffcc;
+}
+
+h4{
+    padding-bottom: 0px;
+}
+
+h3{
+    background-color:#ffdf6b;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Send us an image section*/
+#Row3Content{
+    display: flex;
+}
+
+#Row3Content label{
+    display: block;
+    width: 35%;
+}
+
+#Row3Content input{
+    display: block;
+    width:45%;
+    font-weight: normal;
+}
+
+/*Submit Button*/
+
+#submit{
+	display: block;
+	width: 620px;
+	background-color: #2196f3;
+	padding: 10px 10px 10px 10px;
+	font-size: 30px;
+	color: snow;
+    font-size: 30px;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* making the astericks red*/
+span{color: red;}
+
+/*changing the colour when the mouse hovers on the submit button*/
+#submit:hover{
+    background-color: #4CAF50;
+}

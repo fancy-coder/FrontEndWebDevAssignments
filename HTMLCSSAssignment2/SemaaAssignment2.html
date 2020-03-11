@@ -1,0 +1,173 @@
+<!-- Assignment 2 - Semaa Amin - November 12th 2018 -->
+
+<!DOCTYPE html>
+
+<html>
+  <!-- Added page title -->
+  <head>
+    <!-- add title to page -->
+    <title> Joan's Feedback </title>
+    <!-- link css file to html page-->
+    <link rel="stylesheet" href="SemaaAssignment2Final.css">
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+  </head>
+    
+    <body> <!-- Start of Table -->
+    
+        <!-- Table Header Section -->
+        
+        <header>
+        <!-- logo and text -->
+            <img src="logo.png" id="logo">
+            <h2>Thank you for taking time to give us your feedback!</h2>
+        </header>
+        
+        
+        <!-- Middle Sections (3) -->
+        
+        <form id="MiddleSection" action="surveys.php" method="post">
+        
+            <!-- Row 1 - About your Visit -->
+            <div id="Row1" class="Row">
+                
+                <h3><i>About your visit</i></h3>
+                
+                <div id="Row1Content">
+                    <div id="ColumnLeft">
+                        <div id="ColumnLeftRow1">
+                            
+                            <h4 id="ColumnLeftRow1Child1">
+                                How much did you spend?</h4>
+                            
+                            
+                            <select id="ColumnLeftRow1Child2">
+                                <!-- Creating Drop Down List with options -->
+                                <option value="0-10">$0-$10</option>
+                                <option value="10-20">$10-$20</option>
+                                <option value="20-30">$20-$30</option>
+                                <option value=">30"> > $30 </option>
+                            </select>
+                            
+                        </div>
+                        
+                        <div id="ColumnLeftRow2">
+                      
+                        
+                            <fieldset>
+                                <!-- Creating legends-->
+                                <legend><h4>What was your order?</h4></legend>
+                                <!-- Creating Checkboxes with options and setting default checked box-->
+                                <input type="checkbox" name="Order" id="Option1" value="Taco" checked>
+                                <label for="Option1">Taco</label>
+                                <input type="checkbox" name="Order" id="Option2" value="Burritos">
+                                <label for="Option2">Burritos</label>
+                                <input type="checkbox" name="Order" id="Option3" value="Quesadillas">
+                                <label for="Option3">Quesadillas</label>
+                            </fieldset>
+                        </div>
+                        
+    
+                        <div id="ColumnLeftRow3">
+                            <fieldset>
+                                <legend><h4>How was your experience?</h4></legend>
+                                <!-- Creating radio boxes with options and setting default checked radios  -->
+                                <input type="radio" name="Experience" id="Option1" value="Not Bad">
+                                <label for="Option1">Not Bad</label>
+                                <input type="radio" name="Experience" id="Option2" value="Good" checked>
+                                <label for="Option2">Good</label>
+                                <input type="radio" name="Experience" id="Option3" value="Excellent">
+                                <label for="Excellent">Quesadillas</label>
+                            </fieldset>
+                        </div>
+                        
+                        
+                    
+                    </div>
+                    
+                    <div id="ColumnRight">
+                        <h4>How to get 30% off:</h4>
+                        <p>
+                        Be sure to give us a review on google and present it to us next time to get 30% off your order!
+                        Also, you could also follow the prompts at the end of your in-store receipts and fill out the survey using the printed code. Good luck and thank you for being our customer.
+                        </p>
+                    
+                    </div>
+                
+                </div>
+
+            </div>
+        
+
+            <!-- Row 2 - About You -->
+            
+            <div id="Row2" class="Row">
+            
+                <h3><i>About you</i></h3>
+                <div id="Row2Content">
+                    <div class="LabelInputPairs">
+                    <!-- Setting labels, accesskeys and patterns -->    
+                        <label for="FirstLastname" accesskey="F"><u>F</u>irst, Last Name<span>*</span></label>
+                        <!-- I tried to change the required pattern to "[A-Za-z] [A-Za-z]" to include first AND last name but it is giving me problems -->
+                        <input type="text" name="FirstLastname" id="FirstLastname" required pattern="[a-zA-Z0-9]+" autofocus>
+                    </div>
+                    <br>
+                    <div class="LabelInputPairs">
+                        <label for="E-mail" accesskey="E"><u>E</u>-mail<span>*</span></label>
+                        <input type="email" name="E-mail" id="E-mail"  title="Must be name@domain.com format">
+                    </div>
+                    <br>
+                    <div class="LabelInputPairs">
+                    <label for="Phone" accesskey="P"><u>P</u>hone</label>
+                    <input type="tel" name="Phone"
+				      pattern="\d{3}[\-]\d{3}[\-]\d{4}" 
+				      title="Must be 999-999-9999 format">
+                    </div>
+                    <br>
+                    <div class="LabelInputPairs">
+                    <label for="zip" accesskey="Z"><u>Z</u>ip code</label>
+                    <input type="text" name="zip" id="zip" 
+				      pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]" 
+				      title="Must be A1A 1A1 format">
+                    <!-- I had to change the postal code for it to comply with the Canadian Postal code. I took it from this website:http://html5pattern.com/Postal_Codes -->
+                    </div>
+                    <br>
+                    <div class="LabelInputPairs">
+                    <label for="Comments" accesskey="M"><u>M</u>essage<span>*</span></label>
+                    <textarea name="Comments" required placeholder="If you have any messages, please enter them here.">
+		            </textarea>
+                    </div>
+                    <br>
+                    
+                </div>
+                 
+                
+            </div>
+           
+
+            <!-- Row 3 - Send us image -->
+            
+            <div id="Row3" class="Row">
+                 
+               <h3><i>Send us an image from your visit</i></h3>
+                <div id="Row3Content">
+                    <!-- Setting up file upload -->
+                    <label for="FileUpload">Attach only images:</label>
+                    <input type="file" name="FileUpload" accept="image/x-png">
+                </div> 
+            </div>
+        </form>
+       
+        <!-- Footer Section -->
+        
+        <footer>
+            
+        <!-- submit button -->
+        <!-- I added a popup window using onclick -->    
+        <input id="submit" type="button" value="Submit" onClick="return alert('Thanks for your feedback!');">
+     
+        </footer>
+       
+        
+    </body>     
+  
+</html>
