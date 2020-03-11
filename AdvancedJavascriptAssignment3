@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Calculating 3 Numbers</title>
+    </head>
+ 
+        
+    <body>
+        
+        <h1>This page allows you to add any three numbers togethers and display the result.</h1>
+        
+        <!--Naming and Setting input numbers-->
+        
+        <p>Please input the first number:</p>
+        <input type="text" id="n1"/><br/><br/>
+        <p>Please input the second number:</p>
+        <input type="text" id="n2"/><br/><br/>
+        <p>Please input the third number:</p>
+        <input type="text" id="n3"/><br/><br/>
+        
+        <!--Setting up the onclick button-->
+        
+        <button onclick="calc();">Result =</button>
+        <input type="text" id="result"/>
+        <div class="alert">
+        <!--this sentence is put in place incase an NaN (Not a Number) error occurs-->
+        <h5 id="error"></h5>
+        
+    </body>
+    
+    <script>
+            
+            function calc()
+            {
+                //the parseFloat turns numbers into floats, so we can even use decimals
+                var n1 = parseFloat(document.getElementById('n1').value);
+                var n2 = parseFloat(document.getElementById('n2').value);
+                var n3 = parseFloat(document.getElementById('n3').value);
+                // this is the actual calculation
+                var result = document.getElementById('result').value = n1+n2+n3;
+                
+                // this takes care of any strings that are inputed. when an NaN error occurs in any of the inputs, I instructed it to create an error message in an alert box. I used the || (or) operator to make sure it provides that message incase any or all of the operators have a string instead of a float.
+                if (isNaN(n1) || isNaN(n2) || isNaN(n3))
+                {
+                alert(document.getElementById('error').innerHTML="NaN error. One or more of the inputs is either not filled out or is not a number. Please fill out all inputs and enter numbers only");
+                }
+                
+                //this puts all number answers in an alert box as required by assignment 3
+                else alert("The sum of the three inputed numbers is: " + result);
+                
+                }
+               
+        </script>
+    
+<!--Just some embedded CSS styling to make it look more interesting -->
+    <style>
+        h1   {color: turquoise;}
+        p    {color: mediumblue;}
+        button {color: limegreen;}
+        h5 {
+  color: red;
+        }
+    </style>
+</html>
+
+
+
